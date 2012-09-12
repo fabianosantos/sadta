@@ -2,19 +2,38 @@ package com.tenshiarts.sadta.controller;
 
 import java.util.List;
 
-import com.tenshiarts.sadta.dao.EmployeeDaoImpl;
+import br.com.caelum.vraptor.Path;
+import br.com.caelum.vraptor.Resource;
+import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.util.hibernate.extra.Load;
+
+import com.tenshiarts.sadta.dao.EmployeeDao;
 import com.tenshiarts.sadta.persistence.Employee;
 
+@Resource
 public class EmployeeController {
 
-	private EmployeeDaoImpl employeeDao;
+	private EmployeeDao employeeDao;
 	private Employee employee;
 	private String id;
 	private List<Employee> employees;
+	private Result result;
 	
-	public String findEmployee() {
-		employee = employeeDao.findById(new Long(id));
-		return "success";
+	public EmployeeController(Result result, EmployeeDao employeeDao) {
+		this.employeeDao = employeeDao;
+		this.result = result;
+	}
+	
+	@Path("/")
+	public void index() {
+		
+	}
+	
+	public void registerEmployee() {
+	}
+	
+	public Employee findEmployee(@Load Employee employee) {
+		return employee;
 	}
 	
 	public String listAll() {
@@ -22,8 +41,9 @@ public class EmployeeController {
 		return "success";
 	}
 	
-	public String save() {
+	public String saveEmployee(Employee employee) {
 		employeeDao.saveOrUpdate(employee);
+		result.forwardTo(EmployeeController.class).listAll();
 		return "success";
 	}
 
@@ -39,20 +59,8 @@ public class EmployeeController {
 		return id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
-	}
-
 	public List<Employee> getEmployees() {
 		return employees;
-	}
-
-	public void setEmployees(List<Employee> employees) {
-		this.employees = employees;
-	}
-
-	public void setEmployeeDao(EmployeeDaoImpl employeeDao) {
-		this.employeeDao = employeeDao;
 	}
 	
 }
