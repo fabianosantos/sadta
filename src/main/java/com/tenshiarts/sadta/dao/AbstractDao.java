@@ -3,10 +3,8 @@ package com.tenshiarts.sadta.dao;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-
-public class AbstractDao<T extends Serializable> extends HibernateDaoSupport {
+public class AbstractDao<T extends Serializable> {
 
 	private final Class<T> persistentClass;
 	

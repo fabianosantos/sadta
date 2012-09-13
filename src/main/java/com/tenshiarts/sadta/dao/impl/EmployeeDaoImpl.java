@@ -11,7 +11,7 @@ import com.tenshiarts.sadta.persistence.Employee;
 @Component
 public class EmployeeDaoImpl implements EmployeeDao {
 	
-	List<Employee> employees;
+	private static List<Employee> employees;
 	
 	public EmployeeDaoImpl() {
 		super();

@@ -14,9 +14,6 @@ import com.tenshiarts.sadta.persistence.Employee;
 public class EmployeeController {
 
 	private EmployeeDao employeeDao;
-	private Employee employee;
-	private String id;
-	private List<Employee> employees;
 	private Result result;
 	
 	public EmployeeController(Result result, EmployeeDao employeeDao) {
@@ -36,31 +33,13 @@ public class EmployeeController {
 		return employee;
 	}
 	
-	public String listAll() {
-		employees = employeeDao.listAll();
-		return "success";
+	public List<Employee> listEmployee() {
+		return employeeDao.listAll();
 	}
 	
-	public String saveEmployee(Employee employee) {
+	public void saveEmployee(Employee employee) {
 		employeeDao.saveOrUpdate(employee);
-		result.forwardTo(EmployeeController.class).listAll();
-		return "success";
-	}
-
-	public Employee getEmployee() {
-		return employee;
-	}
-
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public List<Employee> getEmployees() {
-		return employees;
+		result.forwardTo(EmployeeController.class).listEmployee();
 	}
 	
 }
