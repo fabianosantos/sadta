@@ -8,6 +8,10 @@
 <title>Listagem de Empregados</title>
 </head>
 <body>
-
+	<ul>
+		<c:forEach items="${employeeList}" var="employee">
+    		<li> ${employee.id} - ${employee.name} </li>
+		</c:forEach>
+	</ul>
 </body>
 </html>

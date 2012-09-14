@@ -39,7 +39,7 @@ public class EmployeeController {
 	
 	public void saveEmployee(Employee employee) {
 		employeeDao.saveOrUpdate(employee);
-		result.forwardTo(EmployeeController.class).listEmployee();
+		result.redirectTo(EmployeeController.class).listEmployee();
 	}
 	
 }
