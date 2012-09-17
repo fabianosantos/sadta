@@ -194,6 +194,18 @@ public class Employee {
 	public void setComission(Double comission) {
 		this.comission = comission;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + ", surname=" + surname
+				+ ", address=" + address + ", city=" + city + ", state="
+				+ state + ", country=" + country + ", postalCode=" + postalCode
+				+ ", birthDate=" + birthDate + ", feeCharge=" + feeCharge
+				+ ", admissionDate=" + admissionDate + ", department="
+				+ department + ", email=" + email + ", fax=" + fax
+				+ ", cellphone=" + cellphone + ", notes=" + notes + ", salary="
+				+ salary + ", cpf=" + cpf + ", spouse=" + spouse
+				+ ", comission=" + comission + "]";
+	}
+
 }
