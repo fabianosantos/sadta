@@ -2,6 +2,10 @@
 	<h1>Cadastro de Empregados</h1>
 	<hr>
 	
+	<c:forEach var="error" items="${errors}">
+    	${error.category}  ${error.message}<br />
+	</c:forEach>
+	
 	<form action="saveEmployee">
 		<table>
 			<tr>

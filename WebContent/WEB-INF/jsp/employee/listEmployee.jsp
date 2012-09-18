@@ -1,8 +1,19 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../header.jsp"></jsp:include>
-	<ul>
+	<table class="table table-striped">
+		<tr>
+			<td>ID</td>
+			<td>Nome</td>
+			<td>Endere&ccedil;o</td>
+			<td>Cidade</td>
+		</tr>
 		<c:forEach items="${employeeList}" var="employee">
-    		<li> ${employee.id} - ${employee.name} ${employee.surname} - ${employee.address} - ${employee.city} </li>
+    		<tr>
+    			<td>${employee.id}</td>
+    			<td>${employee.name} ${employee.surname}</td>
+    			<td>${employee.address}</td>
+    			<td>${employee.city}</td>
+    		</tr>
 		</c:forEach>
-	</ul>
+	</table>
 <jsp:include page="../footer.jsp"></jsp:include>
